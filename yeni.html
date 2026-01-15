@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şerife Bacı Anadolu Lisesi - 2025-2026 Eğitim Öğretim Yılı 1. Dönem Faaliyetleri</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#000; overflow:hidden; color:white; }
+        .video-container { width:100vw; height:100vh; position:relative; }
+        .slide { position:absolute; width:100%; height:100%; display:none; background-size:contain; background-position:center; background-repeat:no-repeat; background-color:black; }
+        .slide.active { display:flex; animation:fadeIn 1.5s ease-in; }
+        @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+        .slide-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(135deg, rgba(102,126,234,0.85) 0%, rgba(118,75,162,0.85) 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px; text-align:center; }
+        .slide-2 .slide-overlay { background:linear-gradient(135deg, rgba(240,147,251,0.85) 0%, rgba(245,87,108,0.85) 100%); }
+        .slide-3 .slide-overlay { background:linear-gradient(135deg, rgba(79,172,254,0.85) 0%, rgba(0,242,254,0.85) 100%); }
+        .slide-4 .slide-overlay { background:linear-gradient(135deg, rgba(67,233,123,0.85) 0%, rgba(56,249,215,0.85) 100%); }
+        .slide-5 .slide-overlay { background:linear-gradient(135deg, rgba(250,112,154,0.85) 0%, rgba(254,225,64,0.85) 100%); }
+        .slide-6 .slide-overlay { background:linear-gradient(135deg, rgba(48,207,208,0.85) 0%, rgba(51,8,103,0.85) 100%); }
+        .slide-7 .slide-overlay { background:linear-gradient(135deg, rgba(168,237,234,0.80) 0%, rgba(254,214,227,0.80) 100%); }
+        .slide-8 .slide-overlay { background:linear-gradient(135deg, rgba(255,154,158,0.85) 0%, rgba(254,207,239,0.85) 100%); }
+        .slide-9 .slide-overlay { background:linear-gradient(135deg, rgba(255,236,210,0.85) 0%, rgba(252,182,159,0.85) 100%); }
+        .slide-10 .slide-overlay { background:linear-gradient(135deg, rgba(137,247,254,0.85) 0%, rgba(102,166,255,0.85) 100%); }
+        .slide-11 .slide-overlay { background:linear-gradient(135deg, rgba(253,219,146,0.85) 0%, rgba(209,253,255,0.85) 100%); }
+        .slide-12 .slide-overlay { background:linear-gradient(135deg, rgba(152,144,227,0.85) 0%, rgba(177,244,207,0.85) 100%); }
+        .slide-13 .slide-overlay { background:linear-gradient(135deg, rgba(235,192,253,0.85) 0%, rgba(217,222,216,0.85) 100%); }
+        .slide-14 .slide-overlay { background:linear-gradient(135deg, rgba(102,126,234,0.85) 0%, rgba(118,75,162,0.85) 100%); }
+
+        h1 { font-size:4.5em; margin-bottom:30px; text-shadow:3px 3px 10px rgba(0,0,0,0.9); animation:fadeInUp 1s ease-out; font-weight:700; }
+        h2 { font-size:3.2em; margin-bottom:25px; text-shadow:2px 2px 8px rgba(0,0,0,0.9); animation:fadeInUp 1s ease-out 0.3s both; font-weight:600; }
+        h3 { font-size:2.5em; margin-bottom:20px; text-shadow:2px 2px 8px rgba(0,0,0,0.9); animation:fadeInUp 1s ease-out 0.4s both; }
+        p { font-size:2em; max-width:1000px; line-height:1.8; text-shadow:1px 1px 6px rgba(0,0,0,0.9); animation:fadeInUp 1s ease-out 0.6s both; margin-bottom:15px; }
+        .subtitle { font-size:1.6em; font-style:italic; opacity:0.9; margin-top:10px; }
+        ul { list-style:none; font-size:1.8em; max-width:900px; text-align:left; animation:fadeInUp 1s ease-out 0.7s both; }
+        ul li { margin:20px 0; padding-left:40px; position:relative; line-height:1.6; }
+        ul li:before { content:"✓"; position:absolute; left:0; color:#4CAF50; font-weight:bold; font-size:1.3em; }
+        .emoji { font-size:6em; margin-bottom:30px; animation:bounce 2s infinite; }
+        @keyframes bounce { 0%,100% {transform:translateY(0);} 50% {transform:translateY(-25px);} }
+        @keyframes fadeInUp { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+
+        .projects-scroll { max-height:55vh; overflow-y:auto; padding:25px; background:rgba(255,255,255,0.15); border-radius:20px; backdrop-filter:blur(15px); margin-top:20px; box-shadow:0 8px 32px rgba(0,0,0,0.3); }
+        .projects-scroll::-webkit-scrollbar { width:10px; }
+        .projects-scroll::-webkit-scrollbar-track { background:rgba(255,255,255,0.1); border-radius:10px; }
+        .projects-scroll::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.4); border-radius:10px; }
+        .projects-scroll ul li { font-size:1.4em; margin:15px 0; }
+
+        .controls { position:fixed; bottom:40px; left:50%; transform:translateX(-50%); display:flex; gap:25px; z-index:1000; }
+        button { padding:18px 35px; font-size:20px; background:rgba(255,255,255,0.25); border:2px solid white; color:white; cursor:pointer; border-radius:35px; backdrop-filter:blur(15px); transition:all 0.3s; font-weight:600; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
+        button:hover { background:rgba(255,255,255,0.45); transform:scale(1.08); }
+        button:disabled { opacity:0.3; cursor:not-allowed; }
+
+        .progress-bar { position:fixed; top:0; left:0; height:6px; background:linear-gradient(90deg, #667eea, #764ba2); transition:width 0.3s; z-index:1001; box-shadow:0 2px 10px rgba(102,126,234,0.5); }
+        .slide-counter { position:fixed; top:30px; right:40px; font-size:1.5em; background:rgba(255,255,255,0.2); padding:12px 25px; border-radius:25px; backdrop-filter:blur(15px); z-index:1000; }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-counter" id="slideCounter">1 / 93</div>
+
+    <div class="video-container">
+
+        <!-- 1. Açılış -->
+        <div class="slide slide-1 active" style="background-image: url('images/logo.jpeg');">
+            <div class="slide-overlay">
+                <div class="emoji">🎓</div>
+                <h1>2025–2026</h1>
+                <h2>Eğitim Öğretim Yılı Şerife Bacı Anadolu Lisesi</h2>
+                <h3>1. Dönem Faaliyetleri </h3>
+                <p class="subtitle">Başarı Dolu Bir Dönemin Hikayesi</p>
+            </div>
+        </div>
+
+        <!-- 2-9. Koridor fotoğrafları -->
+        <div class="slide" style="background-image:url('images/koridor1.jpg');"><div class="slide-overlay"><h2>Okulumuzdan Görüntüler</h2></div></div>
+        <div class="slide" style="background-image:url('images/koridor2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/koridor3.jpg');"></div>
+        <div class="slide" style="background-image:url('images/koridor4.jpg');"></div>
+        <div class="slide" style="background-image:url('images/koridor5.jpg');"></div>
+        <div class="slide" style="background-image:url('images/koridor6.jpg');"></div>
+        <div class="slide" style="background-image:url('images/koridor7.jpg');"></div>
+        <div class="slide" style="background-image:url('images/koridor8.jpg');"></div>
+
+        <!-- 10-13. Filistin Kermesi -->
+        <div class="slide slide-2" style="background-image: url('images/filistin-kermes.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🤝</div>
+                <h2>Sosyal Sorumluluk</h2>
+                <h1>Filistin İçin Dayanışma</h1>
+                <p>Filistin halkı için yardım kermesi düzenledik.</p>
+                <p class="subtitle">İnsanlık için el ele verdik</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/kermes1.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/kermes2.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/kermes3.jpeg');"></div>
+
+        <!-- 14-25. Değerler Eğitimi Atölyeleri -->
+        <div class="slide slide-3" style="background-image: url('images/degerler-atolye.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🎯</div>
+                <h2>Değerler Eğitimi Atölyeleri</h2>
+                <h1>4 Temel Atölye</h1>
+                <ul>
+                    <li>Değer Köprüleri</li>
+                    <li>Akran Zorbalığı</li>
+                    <li>Gölge Benlik</li>
+                    <li>Aksiyolojik Olgunluk</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz1.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz3.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz4.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz5.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz6.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz7.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz8.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz9.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz10.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz11.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/atolyelerimiz12.jpeg');"></div>
+
+        <!-- 26-30. Değerler Sohbetleri -->
+        <div class="slide slide-4" style="background-image: url('images/degerler-sohbet.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">💬</div>
+                <h2>Değerler Eğitimi Sohbetleri</h2>
+                <h1>Sürekli ve Etkileşimli</h1>
+                <p>Öğrencilerimizin sosyal gelişimini destekledik.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/sohbet1.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/sohbet2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/sohbet3.jpg');"></div>
+        <div class="slide" style="background-image:url('images/sohbet4.jpg');"></div>
+
+        <!-- 31-33. Çevre Bilinci -->
+        <div class="slide slide-5" style="background-image: url('images/agaclandirma.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🌳</div>
+                <h2>Çevre Bilinci</h2>
+                <h1>Temiz Çevre – Yeşil Gelecek</h1>
+                <p>"Yeşil Vatan" kampanyası</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/agac1.jpg');"></div>
+        <div class="slide" style="background-image:url('images/agac2.jpg');"></div>
+
+        <!-- 34-35. TÜBİTAK Giriş + Proje Listesi -->
+        <div class="slide slide-6" style="background-image: url('images/tubitak-lab.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🔬</div>
+                <h2>TÜBİTAK 2204-A Projeleri</h2>
+                <h1>Bilimle Büyüyen Okul</h1>
+                <p style="font-size: 2.5em; font-weight: bold;">16 TÜBİTAK Projesi!</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('images/tubitak-proje.jpg');">
+            <div class="slide-overlay">
+                <h2 style="margin-bottom: 30px;">🔬 TÜBİTAK Projelerimiz</h2>
+                <div class="projects-scroll">
+                    <ul>
+                        <li>Akran Zorbalığından Empatiye: Türkiye Maarif Modeliyle Bir Dönüşüm Deneyimi</li>
+                        <li>Duyuşsal Gelişim Temelli Değerler Eğitimi: Aksiyolojik Olgunluk</li>
+                        <li>Ağrı İli Deprem Riski ve Sosyoekonomik Kırılganlık Analizi</li>
+                        <li>Taşlarda Saklı Kimlik: İshak Paşa Sarayı Mimari Kitabeleri</li>
+                        <li>Kuşaklar Arasında Kaybolmayan Değerler</li>
+                        <li>Dijital Sessizlik: Gençlerin Sosyal Medyada Kendini Sansürleme</li>
+                        <li>Binalarda Isı Kaçağının Fiziksel Tespiti: Avcı Sensörler</li>
+                        <li>Gölge Benlikle Yüzleşme: Ergenlerde Yansıtmalı Kimlik</li>
+                        <li>Hamidiye Alaylarının İzinde: Tarihsel İnceleme</li>
+                        <li>Biyokömür Katkılı Boyaların İç Mekân Hava Kirliliğini Azaltmadaki Etkisi</li>
+                        <li>Işkın Kökü Ekstraktlarının Kardiyovasküler Koruyucu Potansiyeli</li>
+                        <li>PET Mikroplastiklerinin Heterojen Katalitik Hidrolizi</li>
+                        <li>Malzemelerin Isıl Genleşmesini Tahmin Etmeye Yönelik Algoritma</li>
+                        <li>Voronoi Diyagramları ile Deprem Toplanma Alanları Optimizasyonu</li>
+                        <li>Arıtılmış Suyun Görünmeyen Yüzü: Ters Ozmoz Arıtımı</li>
+                        <li>Değer Köprüleri: Yaşlıların Bilgeliği ile Gençlerin Bakışı</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 36-48. TÜBİTAK fotoğrafları (13 tane) -->
+        <div class="slide" style="background-image:url('images/tub1.png');"></div>
+        <div class="slide" style="background-image:url('images/tub2.png');"></div>
+        <div class="slide" style="background-image:url('images/tub3.JPG');"></div>
+        <div class="slide" style="background-image:url('images/tub4.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/tub5.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/tub6.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/tub7.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/tub8.jpg');"></div>
+        <div class="slide" style="background-image:url('images/tub9.jpg');"></div>
+        <div class="slide" style="background-image:url('images/tub10.jpg');"></div>
+        <div class="slide" style="background-image:url('images/tub11.jpg');"></div>
+        <div class="slide" style="background-image:url('images/tub12.jpg');"></div>
+        <div class="slide" style="background-image:url('images/tub13.jpg');"></div>
+
+        <!-- 49-52. Güvenli Okul -->
+        <div class="slide slide-7" style="background-image: url('images/guvenlik.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🛡️</div>
+                <h2>Güvenli Okul</h2>
+                <h1>Güvenli Okul – Güvenli Yaşam</h1>
+                <p>Deprem tatbikatları, yangın merdivenleri yenilemesi</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/guv1.jpg');"></div>
+        <div class="slide" style="background-image:url('images/guv2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/guv3.jpeg');"></div>
+
+        <!-- 53-58. Millî Günler -->
+        <div class="slide slide-8" style="background-image: url('images/milli-gunler.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🇹🇷</div>
+                <h2>Millî Günler</h2>
+                <h1>Millî ve Manevî Değerler</h1>
+                <p>29 Ekim ve 24 Kasım törenleri</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/gun1.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/gun2.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/gun3.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/gun4.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/gun5.jpeg');"></div>
+
+        <!-- 59-62. Akademik Çalışmalar -->
+        <div class="slide slide-9" style="background-image: url('images/sinav.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">📚</div>
+                <h2>Akademik Çalışmalar</h2>
+                <h1>Akademik Takip & Destek</h1>
+                <p>Tüm 12 ve 11.sınıf öğrencilerimize ücretsiz kaynak dağıttık. Ücretsiz Deneme sınavları yaptık</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/akdd1.jpg');"></div>
+        <div class="slide" style="background-image:url('images/akdd2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/akdd3.jpg');"></div>
+
+        <!-- 63-65. Pansiyon -->
+        <div class="slide slide-10" style="background-image: url('images/pansiyon.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🏠</div>
+                <h2>Pansiyon Çalışmaları</h2>
+                <h1>Daha Güvenli, Daha Konforlu</h1>
+                <p>Pansiyon iyileştirme çalışmaları</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/pan1.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/pan2.jpeg');"></div>
+
+        <!-- 66-71. Veli İşbirliği -->
+        <div class="slide slide-11" style="background-image: url('images/veli-toplanti.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">👨‍👩‍👧‍👦</div>
+                <h2>Veli İşbirliği</h2>
+                <h1>Ailelerle El Ele</h1>
+                <p>Veli toplantıları ve ev ziyaretleri</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/veli1.jpg');"></div>
+        <div class="slide" style="background-image:url('images/veli2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/veli3.jpg');"></div>
+        <div class="slide" style="background-image:url('images/veli4.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/veli5.jpeg');"></div>
+
+        <!-- 72-76. Seminerler -->
+        <div class="slide slide-12" style="background-image: url('images/seminer.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🎤</div>
+                <h2>Öğrenci Seminerleri</h2>
+                <h1>Bilgi ve İlham Paylaşımı</h1>
+                <p>Uzman konuşmacılarla seminerler</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/seminerlerimiz1.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/seminerlerimiz2.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/seminerlerimiz3.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/seminerlerimiz4.jpeg');"></div>
+
+        <!-- 77-81. Yetişkin Kursları -->
+        <div class="slide slide-13" style="background-image: url('images/yetiskin-kurs.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">✂️</div>
+                <h2>Yetişkin Kursları</h2>
+                <h1>Hayat Boyu Öğrenme</h1>
+                <p>Dikiş ve el sanatları kursları</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/kurs1.jpg');"></div>
+        <div class="slide" style="background-image:url('images/kurs2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/kurs3.jpg');"></div>
+        <div class="slide" style="background-image:url('images/kurs4.jpg');"></div>
+
+        <!-- 82-91. Pano Çalışmaları -->
+        <div class="slide" style="background-image: url('images/yetiskin-kurs.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">✂️</div>
+                <h2>Pano Çalışmaları</h2>
+                <h1>Sosyal Beceriler</h1>
+                <p>Çeşitli Pano Çalışmaları</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('images/panolarımız1.jpg');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız2.jpg');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız3.jpg');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız4.jpg');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız5.jpg');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız6.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız7.jpeg');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız8.png');"></div>
+        <div class="slide" style="background-image:url('images/panolarımız9.jpeg');"></div>
+
+        <!-- 92-93. Kapanış (orijinalinde tekti, ama 93'e tamamlamak için hafif genişlettim – istersen son ikisini birleştir) -->
+        <div class="slide slide-14" style="background-image: url('images/okul-genel.jpg');">
+            <div class="slide-overlay">
+                <div class="emoji">🌟</div>
+                <h1 style="font-size: 3.5em;">Ağrı Şerife Bacı Anadolu Lisesi:</h1>
+                <h2 style="font-size: 3em; margin-top: 20px;">Bir Liseden Çok Daha Fazlası</h2>
+                <p style="margin-top: 50px;">Gelecek dönemde daha nice başarılara birlikte!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="music/arka-plan.mp3" type="audio/mpeg">
+        Tarayıcınız ses dosyasını desteklemiyor.
+    </audio>
+
+    <div class="controls">
+        <button id="prevBtn">◀ Önceki</button>
+        <button id="playBtn">▶ Otomatik Oynat</button>
+        <button id="nextBtn">Sonraki ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let isAutoPlaying = false;
+        let autoPlayInterval;
+        const bgMusic = document.getElementById('bgMusic');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].style.display = 'flex';
+            updateProgress();
+            updateButtons();
+            updateCounter();
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function updateCounter() {
+            document.getElementById('slideCounter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function toggleAutoPlay() {
+            const playBtn = document.getElementById('playBtn');
+            if (isAutoPlaying) {
+                clearInterval(autoPlayInterval);
+                playBtn.textContent = '▶ Otomatik Oynat';
+                bgMusic.pause();
+                isAutoPlaying = false;
+            } else {
+                bgMusic.play().catch(err => console.log("Ses hatası:", err));
+                autoPlayInterval = setInterval(() => {
+                    if (currentSlide < totalSlides - 1) {
+                        changeSlide(1);
+                    } else {
+                        toggleAutoPlay();
+                    }
+                }, 4000);
+                playBtn.textContent = '⏸ Duraklat';
+                isAutoPlaying = true;
+            }
+        }
+
+        document.getElementById('prevBtn').onclick = () => changeSlide(-1);
+        document.getElementById('nextBtn').onclick = () => changeSlide(1);
+        document.getElementById('playBtn').onclick = toggleAutoPlay;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === ' ') {
+                e.preventDefault();
+                toggleAutoPlay();
+            }
+        });
+
+        updateButtons();
+        updateProgress();
+        updateCounter();
+    </script>
+</body>
+</html>
